@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MessageController; // 追加
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/comments/{timeOfDay}', [CommentsController::class, 'greeting']);
+Route::get('/comments/freeword/{word}', [CommentsController::class, 'freeword']);   
+Route::get('/comments/random', [CommentsController::class, 'random']);
