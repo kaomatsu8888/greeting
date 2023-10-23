@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MessageController; // 追加
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/comments/random', [MessageController::class, 'random']);   //読み込まなかったので一番上に追加ずっとgreetingに飛んでた
+Route::get('/comments/{timeOfDay}', [MessageController::class, 'greeting']);    //あいさつ
+Route::get('/comments/freeword/{word}', [MessageController::class, 'freeword']);    //自由なメッセージ
