@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
-    <title>{{ $title }}のあいさつ</title> <!-- $title という変数を表示 -->
+    <meta charset="UTF-8">
+    <title>{{ $title }}</title> <!-- $title という変数を表示 -->
 </head>
 
 <body>

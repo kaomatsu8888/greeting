@@ -9,17 +9,28 @@ class MessageController extends Controller
 {
     public function greeting($timeOfDay)
     {
-        $greetings = [  // 連想配列
-            'morning' => '朝',  // キー => 値
-            'afternoon' => '昼',
-            'evening' => '夕方',
-            'night' => '夜',
+        // あいさつのメッセージ
+        $greetings = [
+            'morning' => 'おはようございます',
+            'afternoon' => 'こんにちは',
+            'evening' => 'こんばんは',
+            'night' => 'おやすみなさい',
         ];
 
-        $title = ucfirst($timeOfDay) . 'のあいさつ';    // ucfirst()で先頭を大文字に
-        $message = $greetings[$timeOfDay] ?? 'こんにちは';  // $greetings[$timeOfDay]が存在しない場合は'こんにちは'を代入
+        // タイトルの設定
+        $titles = [
+            'morning' => '朝のあいさつ',
+            'afternoon' => '昼のあいさつ',
+            'evening' => '夕方のあいさつ',
+            'night' => '夜のあいさつ',
+        ];
 
-        return view('comments.greeting', ['title' => $title, 'message' => $message]);   // view()の第2引数に連想配列を渡す
+        // 指定された時間帯に基づいてタイトルとメッセージを取得
+        $title = $titles[$timeOfDay] ?? 'あいさつ'; // 存在しない場合は 'あいさつ'
+        $message = $greetings[$timeOfDay] ?? 'こんにちは'; // 存在しない場合は 'こんにちは'
+
+        // ビューにデータを渡して表示
+        return view('comments.greeting', ['title' => $title, 'message' => $message]);
     }
 
     public function freeword($word) // 引数を追加
@@ -28,12 +39,15 @@ class MessageController extends Controller
         return view('comments.freeword', ['title' => $title, 'message' => $word]);  // view()の第2引数に連想配列を渡す
     }
 
-    public function random()    
+    public function random()
     {
-        $messages = ['おはよう', 'こんにちは', 'こんばんは', 'おやすみ'];  // メッセージを配列で用意
-        $title = 'ランダムなメッセージ';    // タイトルを追加
-        $message = $messages[array_rand($messages)];    // array_rand()で配列からランダムに1つ取得
-
-        return view('comments.random', ['title' => $title, 'message' => $message]); // view()の第2引数に連想配列を渡す
-    }
+          // ランダムなメッセージのリスト
+    $messages = ['おはよう', 'こんにちは', 'こんばんは', 'おやすみ'];
+    // ランダムなメッセージを選択
+    $randomMessage = $messages[array_rand($messages)];
+    // タイトルの設定
+    $title = 'ランダムなメッセージ';
+    // ビューにデータを渡して表示
+    return view('comments.random', ['title' => $title, 'message' => $randomMessage]);
 }
+    }
