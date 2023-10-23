@@ -20,6 +20,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/comments/{timeOfDay}', [CommentsController::class, 'greeting']);
-Route::get('/comments/freeword/{word}', [CommentsController::class, 'freeword']);   
-Route::get('/comments/random', [CommentsController::class, 'random']);
+Route::get('/comments/{timeOfDay}', [MessageController::class, 'greeting']);    //あいさつ
+Route::get('/comments/freeword/{word}', [MessageController::class, 'freeword']);    //自由なメッセージ
+Route::get('/comments/random', [MessageController::class, 'random']);   //ランダムなメッセージ

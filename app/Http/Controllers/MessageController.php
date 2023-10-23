@@ -10,10 +10,10 @@ class MessageController extends Controller
     public function greeting($timeOfDay)
     {
         $greetings = [  // 連想配列
-            'morning' => 'おはようございます',  // キー => 値
-            'afternoon' => 'こんにちは',
-            'evening' => 'こんばんは',
-            'night' => 'おやすみ',
+            'morning' => '朝',  // キー => 値
+            'afternoon' => '昼',
+            'evening' => '夕方',
+            'night' => '夜',
         ];
 
         $title = ucfirst($timeOfDay) . 'のあいさつ';    // ucfirst()で先頭を大文字に
