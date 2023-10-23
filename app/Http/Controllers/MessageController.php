@@ -25,7 +25,7 @@ class MessageController extends Controller
             'night' => '夜のあいさつ',
         ];
 
-        // 指定された時間帯に基づいてタイトルとメッセージを取得
+        // タイトルとメッセージを取得
         $title = $titles[$timeOfDay] ?? 'あいさつ'; // 存在しない場合は 'あいさつ'
         $message = $greetings[$timeOfDay] ?? 'こんにちは'; // 存在しない場合は 'こんにちは'
 
@@ -52,3 +52,4 @@ class MessageController extends Controller
         return view('comments.random', ['title' => $title, 'message' => $randomMessage]);
     }
 }
+
