@@ -22,4 +22,3 @@ Route::get('/', function () {
 Route::get('/comments/random', [MessageController::class, 'random']);   //読み込まなかったので一番上に追加ずっとgreetingに飛んでた
 Route::get('/comments/{timeOfDay}', [MessageController::class, 'greeting']);    //あいさつ
 Route::get('/comments/freeword/{word}', [MessageController::class, 'freeword']);    //自由なメッセージ
-

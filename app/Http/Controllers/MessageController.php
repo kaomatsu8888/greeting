@@ -52,4 +52,3 @@ class MessageController extends Controller
         return view('comments.random', ['title' => $title, 'message' => $randomMessage]);
     }
 }
-
