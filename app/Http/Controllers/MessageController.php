@@ -41,13 +41,14 @@ class MessageController extends Controller
 
     public function random()
     {
-          // ランダムなメッセージのリスト
-    $messages = ['おはよう', 'こんにちは', 'こんばんは', 'おやすみ'];
-    // ランダムなメッセージを選択
-    $randomMessage = $messages[array_rand($messages)];
-    // タイトルの設定
-    $title = 'ランダムなメッセージ';
-    // ビューにデータを渡して表示
-    return view('comments.random', ['title' => $title, 'message' => $randomMessage]);
-}
+        // ランダムなメッセージのリスト
+        $messages = ['おはよう', 'こんにちは', 'こんばんは', 'おやすみ'];
+        // ランダムなメッセージを選択
+        $randomMessage = $messages[array_rand($messages)];
+        // タイトルの設定
+        $title = 'ランダムなメッセージ';
+
+        // ビューにデータを渡して表示
+        return view('comments.random', ['title' => $title, 'message' => $randomMessage]);
     }
+}
