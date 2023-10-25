@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class MessageController extends Controller
 {
     public function greeting($timeOfDay)
     {
         // あいさつのメッセージ
-        $greetings = [
+        $greetings = [  // 連想配列
             'morning' => 'おはようございます',
             'afternoon' => 'こんにちは',
             'evening' => 'こんばんは',
@@ -18,7 +19,7 @@ class MessageController extends Controller
         ];
 
         // タイトルの設定
-        $titles = [
+        $titles = [ // 連想配列
             'morning' => '朝のあいさつ',
             'afternoon' => '昼のあいさつ',
             'evening' => '夕方のあいさつ',
@@ -29,14 +30,16 @@ class MessageController extends Controller
         $title = $titles[$timeOfDay] ?? 'あいさつ'; // 存在しない場合は 'あいさつ'
         $message = $greetings[$timeOfDay] ?? 'こんにちは'; // 存在しない場合は 'こんにちは'
 
-        // ビューにデータを渡して表示
-        return view('comments.greeting', ['title' => $title, 'message' => $message]);
+        // return view('comments.greeting', ['title' => $title, 'message' => $message]);
+        return view('comments.common', ['title' => $title, 'message' => $message]);
     }
 
     public function freeword($word) // 引数を追加
     {
         $title = '自由なメッセージ';    // タイトルを追加
-        return view('comments.freeword', ['title' => $title, 'message' => $word]);  // view()の第2引数に連想配列を渡す
+
+        // return view('comments.freeword', ['title' => $title, 'message' => $word]);
+        return view('comments.common', ['title' => $title, 'message' => $word]);
     }
 
     public function random()
@@ -48,7 +51,8 @@ class MessageController extends Controller
         // タイトルの設定
         $title = 'ランダムなメッセージ';
 
-        // ビューにデータを渡して表示
-        return view('comments.random', ['title' => $title, 'message' => $randomMessage]);
+
+        // return view('comments.random', ['title' => $title, 'message' => $randomMessage]);
+        return view('comments.common', ['title' => $title, 'message' => $randomMessage]);
     }
 }
